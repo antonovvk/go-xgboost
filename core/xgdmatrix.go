@@ -119,7 +119,7 @@ func (matrix *XGDMatrix) GetUIntInfo(field string) ([]uint32, error) {
 }
 
 func xdgMatrixFinalizer(mat *XGDMatrix) {
-	C.XGDMatrixFree(unsafe.Pointer(mat.handle))
+	C.XGDMatrixFree(mat.handle)
 }
 
 // XGDMatrixCreateFromMat create matrix content from dense matrix

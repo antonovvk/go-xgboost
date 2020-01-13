@@ -2,7 +2,6 @@ cc_library(
     name = "rabit",
     srcs = glob(
         [
-            "include/dmlc/*.h",
             "include/rabit/internal/*.h",
             "src/*.h",
             "src/allreduce_base.cc",
@@ -20,6 +19,9 @@ cc_library(
     copts = [
         "-std=c++11",
         "-Wall",
+    ],
+    deps = [
+        "@dmlccore//:dmlccore",
     ],
     visibility = ["//visibility:public"],
 )

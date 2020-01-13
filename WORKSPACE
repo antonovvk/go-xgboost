@@ -2,23 +2,30 @@ load("@bazel_tools//tools/build_defs/repo:git.bzl", "new_git_repository")
 load("@bazel_tools//tools/build_defs/repo:http.bzl", "http_archive")
 
 new_git_repository(
+    name = "gtest",
+    build_file = "@//:gtest.BUILD",
+    remote = "https://github.com/google/googletest",
+    tag = "release-1.8.0",
+)
+
+new_git_repository(
     name = "dmlccore",
     build_file = "@//:dmlccore.BUILD",
-    commit = "c5c33124d2cc4a30ce8409d881c945c5bb04d06e",
+    commit = "c54b27e4355333732cd2f6a20c6b37e6900b3a89",
     remote = "https://github.com/dmlc/dmlc-core",
 )
 
 new_git_repository(
     name = "rabit",
     build_file = "@//:rabit.BUILD",
-    commit = "a9a2a69dc1144180a43f7d2d1097264482be7817",
+    commit = "493ad834a1102fcf355a250a3bd08937066cda08",
     remote = "https://github.com/dmlc/rabit",
 )
 
 new_git_repository(
     name = "xgboost",
     build_file = "@//:xgboost.BUILD",
-    commit = "78c4188cec31425f708d238160ea3afb67a7250a",
+    commit = "7b65698187acb5163a4972beaf54d9e6b822beed",
     remote = "https://github.com/dmlc/xgboost",
 )
 

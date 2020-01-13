@@ -45,3 +45,26 @@ cc_binary(
     ],
     visibility = ["//visibility:private"],
 )
+
+cc_test(
+    name = "unittest",
+    srcs = glob(
+        [
+            "tests/cpp/**/*.h",
+            "tests/cpp/**/*.cc",
+        ],
+        exclude = [
+            "tests/cpp/objective/test_multiclass_obj.cc",
+        ],
+    ),
+    copts = [
+        "-Iexternal/gtest/googletest/include",
+    ],
+    deps = [
+        "@gtest//:main",
+        ":xgboost",
+    ],
+    linkopts = [
+        "-lm",
+    ],
+)
