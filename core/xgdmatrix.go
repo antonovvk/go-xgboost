@@ -1,7 +1,7 @@
 package core
 
 /*
-#cgo LDFLAGS: -lxgboost
+#cgo CFLAGS: -fopenmp -Wall
 #include <xgboost/c_api.h>
 #include <stdio.h>
 #include <stdlib.h>
@@ -119,7 +119,7 @@ func (matrix *XGDMatrix) GetUIntInfo(field string) ([]uint32, error) {
 }
 
 func xdgMatrixFinalizer(mat *XGDMatrix) {
-	C.XGDMatrixFree(mat.handle)
+	C.XGDMatrixFree(unsafe.Pointer(mat.handle))
 }
 
 // XGDMatrixCreateFromMat create matrix content from dense matrix

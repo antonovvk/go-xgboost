@@ -1,7 +1,7 @@
 package core
 
 /*
-#cgo LDFLAGS: -lxgboost
+#cgo CFLAGS: -fopenmp -Wall
 #include <xgboost/c_api.h>
 #include <stdio.h>
 #include <stdlib.h>
